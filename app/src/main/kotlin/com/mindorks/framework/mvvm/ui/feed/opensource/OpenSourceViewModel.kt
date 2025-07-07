@@ -20,7 +20,7 @@ class OpenSourceViewModel @Inject constructor(
 
     fun loadOpenSourceProjects() {
         viewModelScope.launch(exceptionHandler) {
-            _isLoading.value = true
+            isLoading.value = true
             val result = dataRepository.getOpenSourceApiCall()
             handleNetworkResult(
                 result = result,

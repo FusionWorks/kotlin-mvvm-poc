@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
+import androidx.viewbinding.ViewBinding
 import com.bumptech.glide.Glide
+import com.mindorks.framework.mvvm.data.network.model.BlogResponse
 import com.mindorks.framework.mvvm.data.network.model.OpenSourceResponse
 import com.mindorks.framework.mvvm.databinding.ItemEmptyViewBinding
 import com.mindorks.framework.mvvm.databinding.ItemRepoViewBinding
@@ -64,13 +66,13 @@ class OpenSourceAdapter(
         }
     }
 
-    sealed class RepoViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
+    sealed class RepoViewHolder(itemView: View) : BaseViewHolder<OpenSourceResponse.Repo, ViewBinding>(itemView as ViewBinding) {
         
         class NormalViewHolder(
-            private val binding: ItemRepoViewBinding
+            override val binding: ItemRepoViewBinding
         ) : RepoViewHolder(binding.root) {
             
-            fun bind(repo: OpenSourceResponse.Repo) {
+            override fun bind(repo: OpenSourceResponse.Repo) {
                 with(binding) {
                     titleTextView.text = repo.title
                     contentTextView.text = repo.description
@@ -93,17 +95,20 @@ class OpenSourceAdapter(
         }
 
         class EmptyViewHolder(
-            private val binding: ItemEmptyViewBinding,
+            override val binding: ItemEmptyViewBinding,
             private val onRetryClick: () -> Unit
         ) : RepoViewHolder(binding.root) {
-            
+            override fun bind(item: OpenSourceResponse.Repo) {
+
+            }
+
             init {
                 binding.btnRetry.setOnClickListener { onRetryClick() }
             }
         }
     }
 
-    private class RepoDiffCallback : DiffUtil.ItemCallback<OpenSourceResponse.Repo>() {
+    class RepoDiffCallback : DiffUtil.ItemCallback<OpenSourceResponse.Repo>() {
         override fun areItemsTheSame(
             oldItem: OpenSourceResponse.Repo,
             newItem: OpenSourceResponse.Repo
