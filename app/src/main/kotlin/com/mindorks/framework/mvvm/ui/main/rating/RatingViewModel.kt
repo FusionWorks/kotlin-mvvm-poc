@@ -23,7 +23,7 @@ class RatingViewModel @Inject constructor(
     fun onRatingSubmitted(rating: Float, message: String) {
         if (rating == 0f) {
             viewModelScope.launch {
-                _error.value = "Please provide a rating"
+                error.value = "Please provide a rating"
             }
             return
         }
