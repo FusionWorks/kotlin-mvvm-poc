@@ -20,7 +20,7 @@ class BlogViewModel @Inject constructor(
 
     fun loadBlogs() {
         viewModelScope.launch(exceptionHandler) {
-            _isLoading.value = true
+            isLoading.value = true
             val result = dataRepository.getBlogApiCall()
             handleNetworkResult(
                 result = result,

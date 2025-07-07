@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
+import androidx.viewbinding.ViewBinding
 import com.bumptech.glide.Glide
-import com.mindorks.framework.mvvm.R
 import com.mindorks.framework.mvvm.data.network.model.BlogResponse
 import com.mindorks.framework.mvvm.databinding.ItemBlogViewBinding
 import com.mindorks.framework.mvvm.databinding.ItemEmptyViewBinding
@@ -66,13 +66,13 @@ class BlogAdapter(
         }
     }
 
-    sealed class BlogViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
+    sealed class BlogViewHolder(itemView: View) : BaseViewHolder<BlogResponse.Blog, ViewBinding>(itemView as ViewBinding) {
         
         class NormalViewHolder(
-            private val binding: ItemBlogViewBinding
+            override val binding: ItemBlogViewBinding
         ) : BlogViewHolder(binding.root) {
             
-            fun bind(blog: BlogResponse.Blog) {
+            override fun bind(blog: BlogResponse.Blog) {
                 with(binding) {
                     titleTextView.text = blog.title
                     authorTextView.text = blog.author
@@ -101,10 +101,12 @@ class BlogAdapter(
         }
 
         class EmptyViewHolder(
-            private val binding: ItemEmptyViewBinding,
+            override val binding: ItemEmptyViewBinding,
             private val onRetryClick: () -> Unit
         ) : BlogViewHolder(binding.root) {
-            
+            override fun bind(item: BlogResponse.Blog) {
+            }
+
             init {
                 binding.btnRetry.setOnClickListener { onRetryClick() }
             }
