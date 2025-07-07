@@ -13,15 +13,15 @@ import javax.inject.Inject
 /**
  * Base ViewModel class with common functionality
  */
-abstract class BaseViewModel @Inject constructor(
+open class BaseViewModel @Inject constructor(
     protected val dataRepository: DataRepository
 ) : ViewModel() {
 
     private val _isLoading = MutableStateFlow(false)
-    val isLoading: StateFlow<Boolean> = _isLoading
+    val isLoading: MutableStateFlow<Boolean> = _isLoading
 
     private val _error = MutableStateFlow<String?>(null)
-    val error: StateFlow<String?> = _error
+    val error: MutableStateFlow<String?> = _error
 
     protected val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         _isLoading.value = false

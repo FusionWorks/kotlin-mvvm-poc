@@ -51,7 +51,7 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch(exceptionHandler) {
             dataRepository.getAllQuestionsWithOptions()
                 .catch { throwable ->
-                    _error.value = throwable.message ?: "Error loading questions"
+                    error.value = throwable.message ?: "Error loading questions"
                 }
                 .collect { questionList ->
                     _questions.value = questionList

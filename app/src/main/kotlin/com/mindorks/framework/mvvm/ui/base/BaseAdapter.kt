@@ -17,7 +17,7 @@ abstract class BaseAdapter<T : Any, VH : BaseAdapter.BaseViewHolder<T, *>>(
     }
 
     abstract class BaseViewHolder<T, VB : ViewBinding>(
-        protected val binding: VB
+        protected open val binding: VB
     ) : RecyclerView.ViewHolder(binding.root) {
         
         abstract fun bind(item: T)
