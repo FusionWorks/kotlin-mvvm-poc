@@ -5,9 +5,6 @@ import android.content.Intent
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.core.app.NavUtils
-import androidx.core.app.TaskStackBuilder
-import com.google.android.material.tabs.TabLayoutMediator
-import com.mindorks.framework.mvvm.R
 import com.mindorks.framework.mvvm.databinding.ActivityFeedBinding
 import com.mindorks.framework.mvvm.ui.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,7 +26,7 @@ class FeedActivity : BaseActivity<ActivityFeedBinding>() {
     }
 
     override fun setupView() {
-        setSupportActionBar(binding.toolbar)
+//        setSupportActionBar(binding.toolbar)
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
@@ -40,15 +37,15 @@ class FeedActivity : BaseActivity<ActivityFeedBinding>() {
 
     private fun setupViewPager() {
         pagerAdapter = FeedPagerAdapter(this)
-        binding.feedViewPager.adapter = pagerAdapter
+//        binding.feedViewPager.adapter = pagerAdapter
 
-        TabLayoutMediator(binding.tabLayout, binding.feedViewPager) { tab, position ->
-            tab.text = when (position) {
-                0 -> getString(R.string.blog)
-                1 -> getString(R.string.open_source)
-                else -> ""
-            }
-        }.attach()
+//        TabLayoutMediator(binding.tabLayout, binding.feedViewPager) { tab, position ->
+//            tab.text = when (position) {
+//                0 -> getString(R.string.blog)
+//                1 -> getString(R.string.open_source)
+//                else -> ""
+//            }
+//        }.attach()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -56,13 +53,13 @@ class FeedActivity : BaseActivity<ActivityFeedBinding>() {
             android.R.id.home -> {
                 val upIntent = NavUtils.getParentActivityIntent(this)
                 upIntent?.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                if (NavUtils.shouldUpRecreateTask(this, upIntent)) {
-                    TaskStackBuilder.create(this)
-                        .addNextIntentWithParentStack(upIntent)
-                        .startActivities()
-                } else {
-                    NavUtils.navigateUpTo(this, upIntent)
-                }
+//                if (NavUtils.shouldUpRecreateTask(this, upIntent)) {
+//                    TaskStackBuilder.create(this)
+//                        .addNextIntentWithParentStack(upIntent)
+//                        .startActivities()
+//                } else {
+//                    NavUtils.navigateUpTo(this, upIntent)
+//                }
                 true
             }
             else -> super.onOptionsItemSelected(item)
