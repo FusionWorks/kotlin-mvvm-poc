@@ -24,7 +24,7 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField("String", "BASE_URL", "\"http://www.mocky.io/v2\"")
+            buildConfigField("String", "BASE_URL", "\"http://www.mocky.io/v2/\"")
             buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
             isDebuggable = true
         }
@@ -34,7 +34,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("String", "BASE_URL", "\"http://www.mocky.io/v2\"")
+            buildConfigField("String", "BASE_URL", "\"http://www.mocky.io/v2/\"")
             buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
         }
     }
@@ -97,7 +97,7 @@ dependencies {
     implementation(libs.bundles.coroutines)
 
     // UI Components
-    implementation(libs.androidx.viewpager2)
+//    implementation(libs.androidx.viewpager2)
 
     // Utilities
     implementation(libs.timber)
