@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Font family definitions -->
+    <string name="font_family_source_sans_pro">@font/source_sans_pro_family</string>
+    
+    <!-- Font weight definitions -->
+    <integer name="font_weight_light">300</integer>
+    <integer name="font_weight_regular">400</integer>
+    <integer name="font_weight_semibold">600</integer>
+    <integer name="font_weight_bold">700</integer>
+</resources>

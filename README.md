@@ -1,121 +1,199 @@
-[![Deprecated](https://img.shields.io/badge/deprecated-yes-red)](https://github.com/janishar/wimm-android-app)
+# Android MVVM Architecture with Kotlin
 
----
-# This Project is [Deprecated] goto latest project: [Modern Android Development - WhereIsMyMotivation](https://github.com/unusualcodeorg/wimm-android-app)
----
+This project demonstrates modern Android development using MVVM architecture pattern with Kotlin, migrated from the original MVP Java implementation.
 
-# Deprecated
+## 🏗️ Architecture
 
-### Android MVP Architecture: Sample App
+- **MVVM Architecture**: Model-View-ViewModel pattern with Repository pattern
+- **Language**: 100% Kotlin
+- **Minimum SDK**: 24 (Android 7.0)
+- **Target SDK**: 34 (Android 14)
 
-This repository contains a detailed sample app that implements MVP architecture using Dagger2, GreenDao, RxJava, FastAndroidNetworking, PlaceHolderView and AndroidDebugDatabase
-<p align="center">
-  <img src="https://janishar.github.io/images/mvp-app-pics/mvp-login.png" width="250">
-  <img src="https://janishar.github.io/images/mvp-app-pics/main-view.png" width="250">
-  <img src="https://janishar.github.io/gifs/mvp-app.gif" width="250">
-</p>
-<br>
-<p align="center">
-  <img src="https://janishar.github.io/images/mvp-app-pics/mvp-drawer.png" width="200">
-  <img src="https://janishar.github.io/images/mvp-app-pics/mvp-rating.png" width="200">
-  <img src="https://janishar.github.io/images/mvp-app-pics/mvp-feed.png" width="200">
-  <img src="https://janishar.github.io/images/mvp-app-pics/mvp-empty-state.png" width="200">
-</p>
-<br>
-<br>
+## 🛠️ Tech Stack
 
-# Architecture Blueprint
-![Blueprint](https://janishar.github.io/images/mvp-app-pics/mvp-arch.png)
-<br>
+### Core
+- **Kotlin**: Primary programming language
+- **Coroutines**: For asynchronous programming
+- **Flow**: For reactive programming
+- **Hilt**: Dependency injection
+- **ViewBinding**: Type-safe view references
 
-# Project Structure
-![Structure](https://janishar.github.io/images/mvp-app-pics/mvp-project-structure-diagram.png)
-<br>
+### Architecture Components
+- **ViewModel**: UI-related data holder with lifecycle awareness
+- **LiveData & StateFlow**: Observable data holder classes
+- **Room**: Database abstraction layer
+- **Repository Pattern**: Single source of truth for data
 
-# About The Author
-You can connect with me here:
-* [Janishar Ali](https://janisharali.com)
-* [Twitter](https://twitter.com/janisharali)
-* [YouTube Channel](https://www.youtube.com/@unusualcode)
+### Networking
+- **Retrofit**: HTTP client for API calls
+- **OkHttp**: HTTP & HTTP/2 client
+- **Moshi**: JSON library for Kotlin
 
-# Read the below listed articles. They describe the MVP concepts and the Project structure.
-1. [MVP: Part 1](https://janisharali.com/blog/essential-guide-for-designing-your-android-app-architecture-mvp-part-1-74efaf1cda40#.lkml1yggq)
-2. [MVP: Part 2](https://janisharali.com/blog/essential-guide-for-designing-your-android-app-architecture-mvp-part-2-b2ac6f3f9637#.dge0wl8rl)
-3. [MVP: Part 3](https://janisharali.com/blog/essential-guide-for-designing-your-android-app-architecture-mvp-part-3-dialog-viewpager-and-7bdfab86aabb)
-4. [Extension with Interactors and Repositories](https://janisharali.com/blog/android-mvp-architecture-extension-with-interactors-and-repositories-bd4b51972339)
+### UI
+- **Material Design Components**: Modern UI components
+- **RecyclerView**: List implementation with ListAdapter
+- **ViewPager2**: Modern paging implementation
+- **Navigation Component**: App navigation
 
-#### The app has following packages:
-1. **data**: It contains all the data accessing and manipulating components.
-2. **di**: Dependency providing classes using Dagger2.
-3. **ui**: View classes along with their corresponding Presenters.
-4. **service**: Services for the application.
-5. **utils**: Utility classes.
+### Testing
+- **JUnit**: Unit testing framework
+- **Espresso**: UI testing framework
+- **Mockito**: Mocking framework
 
-#### Classes have been designed in such a way that it could be inherited and maximize the code reuse.
+### Build System
+- **Gradle Version Catalogs**: Centralized dependency management
+- **Kotlin DSL**: Modern build script syntax
 
-### Library reference resources:
-2. Dagger2: https://github.com/janishar/android-dagger2-example
-4. PlaceHolderView: https://github.com/janishar/PlaceHolderView
-6. Calligraphy: https://github.com/chrisjenx/Calligraphy
-7. GreenDao: http://greenrobot.org/greendao/
-8. ButterKnife: http://jakewharton.github.io/butterknife/
+## 📦 Module Structure
 
-### Concept reference resources:
-1. [Introduction to Dagger 2: Part 1](https://janisharali.com/blog/introduction-to-dagger-2-using-dependency-injection-in-android-part-1-223289c2a01b#.ki6nt86l6)
-2. [Introduction to Dagger 2: Part 2](https://janisharali.com/blog/introduction-to-dagger-2-using-dependency-injection-in-android-part-2-b55857911bcd#.mkpzyk8sa)
-3. [Android Dagger2: Critical things to know before you implement](https://janisharali.com/blog/android-dagger2-critical-things-to-know-before-you-implement-275663aecc3e#.bskiz1879)
-4. [Android Tinder Swipe View Example](https://janisharali.com/blog/android-tinder-swipe-view-example-3eca9b0d4794#.u7i7jbbvy)
-5. [RxJava Anatomy: What is RxJava, how RxJava is designed, and how RxJava works.](https://janisharali.com/blog/rxjava-anatomy-what-is-rxjava-how-rxjava-is-designed-and-how-rxjava-works-d357b3aca586)
-6. [Powerful Android ORM: greenDAO 3 Tutorial](https://blog.mindorks.com/powerful-android-orm-greendao-3-tutorial)
-
-### Looking for MVVM Architecture - [Check here](https://github.com/janishar/android-mvvm-architecture)
-
-### Looking for Kotlin MVP Architecture - [Check here](https://github.com/janishar/android-kotlin-mvp-architecture)
-
-### How do I use this project?
-This is a boilerplate project aimed to help bootstrap new Android MVP Applications. Feel free to fork this application or use [AndroidStarters](http://androidstarters.com/) to create new app using this boilerplate.
-
-# MVP template
-
-When we follow any architecture pattern like MVP, MVVM, MVP clean, we always come across a small but repetitive task to create basic files like Android Activity, Presenter, View, Api models and then writing boiler plate code. This usually takes 1-2 hours for each single screen. To ease out work and save time We have created an automated template which will do above work in less than 20 seconds.
-
-### How to Install
-
-Find the template/MVPActivity folder under root directory of android-mvp-architecture app. Paste the MVPActivity folder at below location.
-1. Windows - C:\Program Files\Android\Android Studio\plugins\android\lib\templates\activities
-2. Mac - /Applications/Android/Studio.app/Contents/plugins/android/lib/templates/activities
-
-Restart the Android Studio.
-
-![Blueprint](https://github.com/sachinrana135/android-mvp-architecture/blob/feature/mvp_template/template/how_to_install.gif)
-<br>
-
-### How to use
-
-Select the folder under which you want to create a new MVP folder. This MVP folder will contain Activity, Presenter, MVpPresenter and View class. For example, to create a new MVP folder under “view” folder, do as shown below.
-
-![Blueprint](https://github.com/sachinrana135/android-mvp-architecture/blob/feature/mvp_template/template/How_to_use_template.gif)
-<br>
-
-
-
-### License
 ```
-   Copyright (C) 2023 JANISHAR ALI ANWAR
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+app/
+├── src/main/kotlin/com/mindorks/framework/mvvm/
+│   ├── data/
+│   │   ├── local/
+│   │   │   ├── database/        # Room database implementation
+│   │   │   └── prefs/           # SharedPreferences wrapper
+│   │   ├── network/             # API interfaces and implementations
+│   │   ├── repository/          # Data repository implementations
+│   │   └── model/               # Data models
+│   ├── ui/
+│   │   ├── base/                # Base classes for Activities/Fragments/ViewModels
+│   │   ├── main/                # Main screen with question cards
+│   │   ├── login/               # Login functionality
+│   │   ├── splash/              # Splash screen
+│   │   └── feed/                # Feed screens (blogs/open source)
+│   ├── utils/                   # Utility classes
+│   └── MvvmApp.kt              # Application class
+├── src/debug/                   # Debug-only code (Flipper, database inspection)
+└── src/test/                    # Unit tests
 ```
 
-### Contributing to Android MVP Architecture
-All pull requests are welcome, make sure to follow the [contribution guidelines](CONTRIBUTING.md)
-when you submit pull request.
+## 🚀 Key Features
+
+### Modern Android Development
+- **Kotlin Coroutines**: Replaces RxJava for simpler async code
+- **Room Database**: Replaces GreenDAO with better Kotlin support
+- **Modern Networking**: Retrofit + Coroutines for API calls
+- **Type Safety**: Leverages Kotlin's type system for safer code
+
+### Legacy Library Replacements
+- ✅ **AndroidNetworking** → **Retrofit + OkHttp**
+- ✅ **Calligraphy** → **Native Font Resources**
+- ✅ **PlaceHolderView** → **RecyclerView + ListAdapter**
+- ✅ **Debug-DB** → **Flipper** (debug builds)
+- ✅ **RxJava** → **Kotlin Coroutines + Flow**
+
+### Enhanced Features
+- **Swipe Cards**: Custom swipe implementation for question cards
+- **Modern Adapters**: ListAdapter with DiffUtil for efficient updates
+- **Network Error Handling**: Comprehensive error handling with sealed classes
+- **Debug Tools**: Flipper integration for debugging (debug builds only)
+
+## 🔧 Setup
+
+### Prerequisites
+- Android Studio Arctic Fox or later
+- JDK 17 or later
+- Android SDK 34
+
+### Getting Started
+1. Clone the repository
+```bash
+git clone https://github.com/your-username/android-mvvm-architecture.git
+```
+
+2. Open the project in Android Studio
+
+3. Sync project with Gradle files
+
+4. Run the app
+
+### Build Configuration
+The project uses Gradle Version Catalogs for dependency management. All dependencies are defined in `gradle/libs.versions.toml`.
+
+## 🧪 Testing
+
+### Unit Tests
+```bash
+./gradlew test
+```
+
+### Instrumentation Tests
+```bash
+./gradlew connectedAndroidTest
+```
+
+## 🐛 Debug Tools
+
+### Debug Builds
+Debug builds include additional tools:
+- **Flipper**: Network and database inspection
+- **LeakCanary**: Memory leak detection
+- **Debug Activity**: Database inspection and export
+
+### Access Debug Menu
+In debug builds, you can access debug tools through the navigation drawer or by directly starting the `DebugActivity`.
+
+## 🏗️ Migration from MVP
+
+This project was migrated from MVP (Java) to MVVM (Kotlin). Key migration points:
+
+### Architecture Changes
+- **Presenters** → **ViewModels**
+- **View Interfaces** → **LiveData/StateFlow observers**
+- **Manual lifecycle management** → **Automatic lifecycle awareness**
+
+### Technology Updates
+- **Java** → **Kotlin**
+- **RxJava** → **Coroutines + Flow**
+- **GreenDAO** → **Room**
+- **Legacy networking** → **Modern Retrofit**
+
+### Code Quality Improvements
+- Type safety with Kotlin
+- Null safety
+- Coroutines for cleaner async code
+- Modern Android Architecture Components
+
+## 📚 Learning Resources
+
+- [Android Architecture Components](https://developer.android.com/topic/libraries/architecture)
+- [Kotlin Coroutines Guide](https://kotlinlang.org/docs/coroutines-guide.html)
+- [Room Database Guide](https://developer.android.com/training/data-storage/room)
+- [Hilt Dependency Injection](https://developer.android.com/training/dependency-injection/hilt-android)
+
+## 📄 License
+
+```
+Copyright (C) 2017 MINDORKS NEXTGEN PRIVATE LIMITED
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://mindorks.com/license/apache-v2
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📞 Support
+
+For questions and support, please visit:
+- [Mindorks Blog](https://blog.mindorks.com)
+- [Mindorks GitHub](https://github.com/MindorksOpenSource)
+
+---
+
+**Happy Coding!** 🎉
